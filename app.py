@@ -8,6 +8,7 @@ from fastapi.responses import JSONResponse
 import pandas as pd
 from io import StringIO
 import os
+from src.components.datavavalidation import datavalidation
 
 app = FastAPI()
 
@@ -40,11 +41,13 @@ async def trainRouteClient(file: UploadFile = File(...)):
             os.makedirs(data_dir)
         
         df.to_csv("data/data.csv")
+        data=datavalidation()
+        data.intiatedatavalidation
         # Get the first 5 rows of the DataFrame
-        head = df.head()
+        
         
         # Return the DataFrame head as JSON
-        print(head)
+        
         
 
     except Exception as e:
