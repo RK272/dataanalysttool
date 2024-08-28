@@ -1,8 +1,10 @@
 // Function to upload CSV file
 function uploadCSV() {
     const fileInput = document.getElementById('file-input');
+    const columnNames = document.getElementById('column-names').value;
     const formData = new FormData();
     formData.append('file', fileInput.files[0]);
+    formData.append('columns', columnNames);
 
     fetch('/train', {
         method: 'POST',

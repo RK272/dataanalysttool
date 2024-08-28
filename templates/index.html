@@ -25,6 +25,7 @@
             <!-- Form to upload CSV file -->
             <form id="upload-form" enctype="multipart/form-data">
                 <input type="file" id="file-input" name="file" accept=".csv">
+                <input type="text" id="column-names" name="columns" placeholder="Enter column names (comma-separated)">
                 <button type="button" onclick="uploadCSV()">Upload CSV</button>
             </form>
         </div>
