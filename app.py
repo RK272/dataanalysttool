@@ -23,17 +23,23 @@ async def home(request: Request):
 
 @app.post("/train")
 async def trainRouteClient(file: UploadFile = File(...)):
+
     try:
+
         # Read the file content
         contents = await file.read()
         # Convert byte content to string
         content_str = contents.decode('utf-8')
-        print("+++++++")
+        
         print(content_str)
-        print("+++++++")
+      
         # Use StringIO to read the string as a CSV file
         df = pd.read_csv(StringIO(content_str))
-
+        data_dir = 'data'
+        if not os.path.exists(data_dir):
+            os.makedirs(data_dir)
+        
+        df.to_csv("data/data.csv")
         # Get the first 5 rows of the DataFrame
         head = df.head()
         
