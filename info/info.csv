@@ -1,0 +1,9 @@
+Column,Non-Null Count,Dtype
+Unnamed: 0.1,7500 non-null,int64
+Unnamed: 0,7500 non-null,int64
+date,7500 non-null,object
+open,7500 non-null,float64
+high,7500 non-null,float64
+low,7500 non-null,float64
+close,7500 non-null,float64
+volume,7500 non-null,int64

@@ -1,4 +1,3 @@
-// Function to upload CSV file
 function uploadCSV() {
     const fileInput = document.getElementById('file-input');
     const columnNames = document.getElementById('column-names').value;
@@ -10,12 +9,14 @@ function uploadCSV() {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
+    .then(response => response.json()) // Parse JSON directly
     .then(data => {
         if (data.error) {
             alert('Error: ' + data.error);
         } else {
-            alert('Success: ' + data.message);
+            // Redirect to results page
+            const imageParams = encodeURIComponent(data.images.join(','));
+            window.location.href = `/results?images=${imageParams}`;
         }
     })
     .catch(error => {
